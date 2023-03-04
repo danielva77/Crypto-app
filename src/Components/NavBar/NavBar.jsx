@@ -17,7 +17,7 @@ function NavBar() {
         <Link to="/" class="text-decoration-none"><p class="nav-link active text-center" id="navlink" aria-current="page">Inicio</p></Link>
         </li>
         <li class="nav-item text-center">
-        <Link to="/" class="text-decoration-none"><p class="nav-link active text-center" id="navlink" aria-current="page">Mercado</p></Link>
+        <Link to="/mercado" class="text-decoration-none"><p class="nav-link active text-center" id="navlink" aria-current="page">Mercado</p></Link>
         </li>
         <li class="nav-item">
           <Link to="/carteras" class="text-decoration-none"><p class="nav-link active text-center" id="navlink">Mis carteras</p></Link>

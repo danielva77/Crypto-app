@@ -1,9 +1,42 @@
 import React from 'react'
+// import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import { FaMoon } from "react-icons/fa";
 import "./NavBar.css"
+import Swal from 'sweetalert2';
 
-function NavBar() {
+function NavBar({ onAddCartera }) {
+// const [carteras, setCarteras] = useState([]);
+
+//   useEffect(() => {
+//     const storedArray = localStorage.getItem('carteras');
+//     if (storedArray) {
+//       setCarteras(JSON.parse(storedArray));
+//     }
+//   }, []);
+
+//   useEffect(() => {
+//     localStorage.setItem('carteras', JSON.stringify(carteras));
+//   }, [carteras]);
+
+
+
+function handleClick() {
+Swal.fire({
+        title: "Nombre de la cartera",
+        input: "text",
+        showCancelButton: true,
+        confirmButtonText: "Guardar",
+        cancelButtonText: "Cancelar",
+    })
+    .then(resultado => {
+      if (resultado.value) {
+        let newObject = { nombre: resultado.value };
+        onAddCartera(newObject);
+        Swal.fire("Creado con exito!", "", "success");
+      }
+    });
+}
   return (
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
@@ -24,7 +57,7 @@ function NavBar() {
         </li>
       </ul>
         <div class="text-center">
-        <button class="m-1 align-content-center">Crear cartera</button>
+        <button class="m-1 align-content-center" onClick={(e) => handleClick()}>Crear cartera</button>
         </div>
 
         <div class="text-center"><FaMoon class="ms-1"/></div>
@@ -33,15 +66,6 @@ function NavBar() {
 
   </div>
 </nav>
-
-    // <div>
-    //     Acá un logo
-    //     <Link to="/"><p>Inicio</p></Link>
-    //     <Link to="/carteras"><p>Mis carteras</p></Link>
-    //     <button class="m-1">Crear cartera</button>
-    //     <FaMoon class="ms-3"/>
-
-    // </div>
   )
 }
 

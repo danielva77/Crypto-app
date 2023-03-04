@@ -2,7 +2,6 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import ListCryptos from '../ListCryptos/ListCryptos'
-import NavBar from '../NavBar/NavBar'
 import Footer from '../Footer/Footer'
 import Tendencias from '../Tendencias/Tendencias'
 
@@ -28,7 +27,6 @@ useEffect(() => {
 
   return (
     <div>
-    <NavBar/>
     <h1 class="text-center">Tendencia entre los inversores</h1>
     <Tendencias trend={trend} price_btc_usd={ btc }/>
     <h1 class="text-center">Precios de las criptomonedas según la capitalización de mercado</h1>

@@ -6,7 +6,7 @@ import Mercado from './Components/Mercado/Mercado';
 import NavBar from "./Components/NavBar/NavBar";
 
 function App() {
-  // const [carteras, setCarteras] = useState([]);
+
   const [carteras, setCarteras] = useState(() => {
     const localStoragecarteras = localStorage.getItem("carteras");
     return localStoragecarteras ? JSON.parse(localStoragecarteras) : [];
@@ -21,9 +21,6 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("carteras", JSON.stringify(carteras));
-    // window.addEventListener("beforeunload", () => {
-    //   localStorage.setItem("carteras", JSON.stringify(carteras));
-    // });
   }, [carteras]);
 
   function handleAddCartera(cartera) {
@@ -36,7 +33,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home/>}/>
         <Route path="/mercado" element={<Mercado/>}/>
-        <Route path="/carteras" element={<Carteras carteras={carteras}/>}/>
+        <Route path="/carteras" element={<Carteras props={carteras}/>}/>
       </Routes>
     </BrowserRouter>
 

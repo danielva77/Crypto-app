@@ -31,7 +31,8 @@ Swal.fire({
     })
     .then(resultado => {
       if (resultado.value) {
-        let newObject = { nombre: resultado.value };
+        let newObject = { nombre: resultado.value,
+                          transacciones: []};
         onAddCartera(newObject);
         Swal.fire("Creado con exito!", "", "success");
       }

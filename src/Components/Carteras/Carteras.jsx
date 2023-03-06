@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Footer from '../Footer/Footer'
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 function Carteras() {
@@ -27,13 +28,8 @@ function handleEdit(e){
 .then(resultado => {
   if (resultado.value) {
     let newObject = resultado.value
-
     const indiceObjetoAEditar = arrayEnLocalStorage.findIndex(objeto => objeto.nombre === e);
-
-
-
     carteras[indiceObjetoAEditar].nombre = newObject;
-    
     localStorage.setItem("carteras", JSON.stringify(carteras));
     setCarteras([...carteras]);
     Swal.fire("Modificado con exito!", "", "success");
@@ -74,6 +70,7 @@ function handleEdit(e){
           <button onClick={() => handleEdit(e.nombre)}>Editar</button>
           <button onClick={() => handleDelete(e.nombre)}>Eliminar</button>
           <button>Detalles</button>
+          <Link to={"/transacciones/"+e.nombre}><button>Transacciones</button></Link>
         </div>) : <h1>Aun no tienes carteras creadas</h1>
       }
 

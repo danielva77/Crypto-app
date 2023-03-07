@@ -55,7 +55,7 @@ useEffect(() => {
       <Routes>
         <Route exact path="/" element={<Home/>}/>
         <Route path="/mercado" element={<Mercado trend={trend} btc={btc} crypto={crypto}/>}/>
-        <Route path="/carteras" element={<Carteras props={carteras}/>}/>
+        <Route path="/carteras" element={<Carteras />}/>
         <Route path="/transacciones/:id" element={<Transacciones crypto={crypto}/>}/>
       </Routes>
     </BrowserRouter>

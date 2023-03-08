@@ -51,9 +51,7 @@ function NavBar({ onAddCartera }) {
           <div class="text-center">
             <button class="m-1 align-content-center btn fw-bold bg-orange btn-header text-light" onClick={(e) => handleClick()}>Crear cartera</button>
           </div>
-
         </div>
-
       </div>
     </nav>
   )

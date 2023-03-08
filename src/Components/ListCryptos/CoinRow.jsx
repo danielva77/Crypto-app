@@ -13,7 +13,7 @@ function CoinRow({ coin, index }) {
           style={{ width: "3%" }}
         />
         <Link to={"/detalles/" + coin.id}><span>{coin.name}</span></Link>
-        <span className="ms-3 text-muted text-uppercase">{coin.symbol}</span>
+        <span className="ms-3 text-light text-uppercase">{coin.symbol}</span>
       </td>
 
       <td>${coin.current_price.toLocaleString()}</td>

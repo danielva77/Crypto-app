@@ -110,7 +110,6 @@ function Carteras() {
               <h3 class="mb-5">Manejá tus carteras</h3>
             </div>
           </div>
-
           <div class="row">
             <div id="carouselInd" class="carousel slide" data-bs-ride="carousel">
               <div class="carousel-indicators">
@@ -118,7 +117,6 @@ function Carteras() {
                 <button type="button" data-bs-target="#carouselInd" data-bs-slide-to="1" class="bg-green"></button>
                 <button type="button" data-bs-target="#carouselInd" data-bs-slide-to="2" class="bg-green"></button>
               </div>
-
               <div class="carousel-inner">
                 <div class="carousel-item active">
                   <div class="col-12 row mx-auto">
@@ -130,7 +128,6 @@ function Carteras() {
                     </div>
                   </div>
                 </div>
-
                 <div class="carousel-item">
                   <div class="col-12 row mx-auto">
                     <div class="row text-center text-lg-start">
@@ -141,7 +138,6 @@ function Carteras() {
                     </div>
                   </div>
                 </div>
-
                 <div class="carousel-item">
                   <div class="col-12 row mx-auto">
                     <div class="row text-center text-lg-start">
@@ -157,7 +153,6 @@ function Carteras() {
           </div>
         </div>
       </section>
-
       <div class="container mb-5" >
         {carteras.length > 0 ? carteras.map((e, index) =>
           <div class="row col-md-10 m-5 justify-content-center purple-bg-color" key={index}>
@@ -166,7 +161,6 @@ function Carteras() {
                 <div class="p-4 d-flex flex-column purple-bg-color round-corner">
                   <span class="text-uppercase font-30 weight-700 white-color-2">{e.nombre}</span>
                   <span class="font-28 weight-500 white-color mt-4">Total US$ {resultado5[index].totalActivos.toFixed(2)}</span>
-
                   <div class="d-flex flex-row justify-content-between mt-4">
                     <div class="d-flex flex-column">
                     </div>
@@ -177,17 +171,14 @@ function Carteras() {
                   <div class="d-flex flex-row mt-4 mb-4">
                     <button data-testid="edit-input" class="flex-grow-1 me-1 py-2 text-uppercase font-12 weight-700 purple-color-2 grey-bg-color" onClick={() => handleEdit(e.nombre)}>Editar cartera</button>
                     <button class="flex-grow-1 me-1 py-2 text-uppercase font-12 weight-700 purple-color-2 grey-bg-color" onClick={() => handleDelete(e.nombre)}>Eliminar cartera</button>
-                    {/* <Link to={"/transacciones/"+e.nombre}><button class="flex-grow-1 ms-1 py-2 text-uppercase font-12 weight-700 white-color orange-bg-color">Hacer una transaccion</button></Link> */}
                   </div >
                   <div class="justify-content-center"><Link to={"/transacciones/" + e.nombre}><button class="flex-grow-1 ms-1 py-2 text-uppercase font-12 weight-700 white-color orange-bg-color">Hacer una transaccion</button></Link></div>
-
                 </div>
               </div>
             </div>
           </div>) : <h1 class="text-center">Aun no tienes carteras creadas</h1>}
       </div>
       <div class="margingeneral"></div>
-
       <Footer />
     </div>
   )

@@ -48,7 +48,6 @@ function Home() {
           </div>
         </div>
       </section>
-
       <section id="sec-2" data-testid="section-2" class="py-5">
         <div class="container my-4">
           <div class="row gx-lg-5">
@@ -63,7 +62,6 @@ function Home() {
           </div>
         </div>
       </section>
-
       <section id="sec-3" data-testid="section-3" class="py-5 text-black bg-blue">
         <div class="container my-4">
           <div class="row mb-5">
@@ -86,7 +84,6 @@ function Home() {
                 </div>
               </div>
             </div>
-
             <div class="col-lg-6 text-center text-sm-start mb-4">
               <div class="row">
                 <div class="col-sm-2 d-sm-flex justify-content-sm-end">
@@ -100,7 +97,6 @@ function Home() {
                 </div>
               </div>
             </div>
-
             <div class="col-lg-6 text-center text-sm-start mb-4">
               <div class="row">
                 <div class="col-sm-2 d-sm-flex justify-content-sm-end">
@@ -114,7 +110,6 @@ function Home() {
                 </div>
               </div>
             </div>
-
             <div class="col-lg-6 text-center text-sm-start mb-4">
               <div class="row">
                 <div class="col-sm-2 d-sm-flex justify-content-sm-end">
@@ -138,12 +133,10 @@ function Home() {
               <h3 class="mb-1">Aprendé a identificar tendencias</h3>
             </div>
           </div>
-
           <div class="row">
             <iframe width="560" height="500" src="https://www.youtube.com/embed/VlDQdFA7-7c" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe></div>
         </div>
       </section>
-
       <section id="sec-6" class="py-5">
         <div class="container my-4">
           <div class="row mb-5">
@@ -159,21 +152,18 @@ function Home() {
               </div>
               <h6 class="text-light">criptomonedas</h6>
             </div>
-
             <div class="col-md-6 col-lg-3 mb-5">
               <div class="circle-icon bg-white text-green d-flex align-items-center justify-content-center mx-auto mb-4 fs-2 fw-bold">
                 50+
               </div>
               <h6 class="text-light">clientes felices</h6>
             </div>
-
             <div class="col-md-6 col-lg-3 mb-5">
               <div class="circle-icon bg-white text-green d-flex align-items-center justify-content-center mx-auto mb-4 fs-2 fw-bold">
                 90%
               </div>
               <h6 class="text-light">transacciones</h6>
             </div>
-
             <div class="col-md-6 col-lg-3 mb-5">
               <div class="circle-icon bg-white text-green d-flex align-items-center justify-content-center mx-auto mb-4 fs-2 fw-bold">
                 9/10
@@ -183,7 +173,6 @@ function Home() {
           </div>
         </div>
       </section>
-
       <section id="sec-7" class="py-5">
         <div class="container my-4">
           <div class="row gx-md-5">
@@ -197,7 +186,6 @@ function Home() {
                 </div>
               </div>
             </div>
-
             <div class="col-md-6 my-3">
               <div class="card text-center">
                 <img class="card-img-top" src="https://cdn.pixabay.com/photo/2019/12/01/05/02/keyboard-4664732_1280.jpg" alt="imagen" />

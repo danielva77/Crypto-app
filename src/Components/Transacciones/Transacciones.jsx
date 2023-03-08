@@ -172,11 +172,9 @@ function Transacciones({ crypto }) {
     <div>
       <div class="container">
         <div>
-
-          <h1 class="fw-bold">{carteras[indice] && carteras[indice].nombre}</h1>
+          <h1 class="text-uppercase fw-bold">Cartera: {carteras[indice] && carteras[indice].nombre}</h1>
           <button data-testid="add-transaction-button" onClick={(e) => handleAdd()} type="button" class="btn btn-green mt-2 mb-4">Agregar Transaccion</button>
           <h5>Historial de transacciones</h5>
-
         </div>
         <div class="divCripto">
           <table className="table mt-4 table-dark table-hover">
@@ -200,15 +198,13 @@ function Transacciones({ crypto }) {
                   <td><button onClick={(e) => handleUpdate(index)} class="btn1-green">Modificar</button></td>
                   <td><button onClick={(e) => handleDeleteTransaccion(index)} class="btn1-green">Eliminar</button></td>
                 </tr>
-              )
+                )
               }
             </tbody>
           </table>
           <Link to="/carteras"><button type="button" class="btn btn-green mt-2">Volver</button></Link>
         </div>
-
       </div>
-
       <Footer />
     </div>
   )

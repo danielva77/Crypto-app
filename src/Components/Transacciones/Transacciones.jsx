@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
-// import { Link } from 'react-router-dom';
+import Footer from '../Footer/Footer';
+import "./Transacciones.css"
+import { Link } from 'react-router-dom';
 
 function Transacciones({crypto}) {
 
@@ -15,55 +17,8 @@ useEffect(() => {
 }, [carteras]);
 
 
-
-
   const ruta=useParams().id;
   const indice = carteras.findIndex(objeto => objeto.nombre === ruta)
-  // const [formValues, setFormValues] = useState({
-  //   tipo: '',
-  //   criptomoneda: '',
-  //   precio: 0,
-  //   cantidad: '',
-  //   fecha: ''
-  // });
-  // function handleInputChange(e) {
-  //   setFormValues({
-  //     ...formValues,
-  //     [e.target.name]: e.target.value
-  //   });
-  // }
-
-  // function updatePrice() {
-  //   const selectedCurrency = document.getElementById("currency").value;
-  //   const selectedCrypto = crypto.find((e) => e.name === selectedCurrency);
-
-  //   setFormValues({
-  //     ...formValues,
-  //     precio: selectedCrypto.current_price
-  //   });
-
-  //   const currentPriceElement = document.getElementById("current-price");
-  //   currentPriceElement.innerHTML = `Precio actual: US$ ${selectedCrypto.current_price.toLocaleString()}`;
-
-
-  // }
-
-  // function handleSubmit(e){
-  //   e.preventDefault()
-  //   const indiceObjetoAEditar = arrayEnLocalStorage.findIndex(objeto => objeto.nombre === ruta);
-  //   carteras[indiceObjetoAEditar].transacciones.push(formValues);
-  //   localStorage.setItem("carteras", JSON.stringify(carteras));
-  //   setCarteras([...carteras]);
-  //   setFormValues({
-  //     tipo: '',
-  //     criptomoneda: '',
-  //     precio: 0,
-  //     cantidad: '',
-  //     fecha: ''
-  //   })
-  //   Swal.fire("Transaccion realizada con exito!", "", "success");
-    
-  // }
 
   function handleAdd(){
 
@@ -79,11 +34,11 @@ useEffect(() => {
 
         <select name="criptomoneda" id="criptomoneda">
         <option value="" disabled selected>Seleccionar criptomoneda</option>
-        ${crypto.map((e) => `<option name=${e.name} value=${e.name}>${e.symbol.toUpperCase()} ${e.name}</option>`
+        ${crypto.map((e) => `<option name=${e.name} value=${e.name}>${e.symbol.toUpperCase()} ${e.name}→${e.current_price}US$</option>`
         )}
         </select>
         <input type="number" id="cantidad" name="cantidad" placeholder="cantidad" min="0" value="1">Cantidad</input>
-        <input type="number" id="price" name="precio" placeholder="precio" min="0" value="1">Precio US$</input>
+        <input type="number" id="price" name="precio" placeholder="Precio unitario US$" min="0"></input>
         <input type="date" id="fecha" name="fecha" value="${new Date().toISOString().substr(0, 10)}"></input>
         </form>
       `,
@@ -171,7 +126,7 @@ useEffect(() => {
 
       <select name="criptomoneda" id="criptomoneda">
       <option value=${carteras[indiceObjetoAEditar].transacciones[index].criptomoneda} disabled selected>${carteras[indiceObjetoAEditar].transacciones[index].criptomoneda}</option>
-      ${crypto.map((e) => `<option name=${e.name} value=${e.name}>${e.symbol.toUpperCase()} ${e.name}</option>`
+      ${crypto.map((e) => `<option name=${e.name} value=${e.name}>${e.symbol.toUpperCase()} ${e.name}→${e.current_price}</option>`
       )}
       </select>
       <input type="number" id="cantidad" name="cantidad" placeholder="cantidad" min="0" value=${carteras[indiceObjetoAEditar].transacciones[index].cantidad}>Cantidad</input>
@@ -212,63 +167,49 @@ useEffect(() => {
     });
 
   }
-  
+  const titles = ["#","Tipo", "Criptomoneda", "cantidad", "Precio USD", "Total USD","Fecha", "Modificar", "Eliminar"];
     return (
     <div>
-      <button onClick={(e) => handleAdd()}>Agregar Transaccion</button>
-      {/* <form onSubmit={handleSubmit}>
-      <label for="type">Tipo de operación:</label>
-      <select name="tipo" id="type" onChange={handleInputChange}>
-        <option disabled selected>Seleccionar operacion</option>
-        <option value="compra">Compra</option>
-        <option value="venta">Venta</option>
-      </select>
-
-        <br/>
-
-        <label for="currency">Criptomoneda:</label>
-        <select name="criptomoneda" id="currency" onChange={(e) => {updatePrice(); handleInputChange(e)}}>
-          <option disabled selected>Seleccionar criptomoneda</option>
-          {crypto.map((e) => <option name={e.name} value={e.name}>{e.symbol.toUpperCase()} {e.name}</option>
-          )}
-        </select>
-        <span id="current-price" name="precio"></span>
-        
-
-        <br/>
-
-        <label for="quantity">Cantidad:</label>
-        <input type="number" id="quantity" name="cantidad" onChange={handleInputChange}/>
-
-        <br/>
-
-        <label for="date">Fecha:</label>
-        <input type="date" id="date" name="fecha" onChange={handleInputChange}/>
-
-        <br/>
-
-        <input type="submit" value="Enviar"/>
-        <Link to="/carteras"><button>Cancelar</button></Link>
-            </form> */}
-
-
+      <div class="container">
       <div>
-        <h1>Historial de transacciones</h1>
-        { carteras[indice].transacciones.map((e,index) => 
-        <div>
-          <p>#{index}</p>
-          <p>{e.tipo}</p>
-          <p>{e.criptomoneda}</p>
-          <p>{e.cantidad}</p>
-          <p>{e.precio}</p>
-          <p>Total:{e.total}</p>
-          <p>{e.fecha}</p>
-          <button onClick={(e) => handleUpdate(index)}>Modificar</button>
-          <button onClick={(e) =>handleDeleteTransaccion(index)}>Eliminar</button>
-        </div>)
-    }
+        
+        <h1 class="fw-bold">{carteras[indice].nombre}</h1>
+        <button onClick={(e) => handleAdd()} type = "button" class = "btn btn-green mt-2 mb-4">Agregar Transaccion</button>
+        <h5>Historial de transacciones</h5>
+        
       </div>
-
+      <div class="divCripto">
+      <table className="table mt-4 table-dark table-hover">
+        <thead>
+          <tr class="fw-bold text-light">
+            {titles.map((title, i) => (
+              <td key={i}>{title}</td>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+        { carteras[indice].transacciones.map((e,index) => 
+        <tr>
+          <td className="text-muted">{index}</td>
+          <td className={e.tipo === "compra"? "text-success" : "text-danger"}><span>{e.tipo}</span></td>
+          <td><span>{e.criptomoneda}</span></td>
+          <td className={e.tipo === "compra"? "text-success" : "text-danger"}><span>{e.tipo === "compra"? e.cantidad : -e.cantidad}</span></td>
+          <td><span>{e.precio}</span></td>
+          <td><span>{e.total}</span></td>
+          <td><span>{e.fecha}</span></td>
+          <td><button onClick={(e) => handleUpdate(index)} class = "btn1-green">Modificar</button></td>
+          <td><button onClick={(e) =>handleDeleteTransaccion(index)} class = "btn1-green">Eliminar</button></td>
+        </tr>
+        )
+    }
+        </tbody>
+      </table>
+      <Link to="/carteras"><button type = "button" class = "btn btn-green mt-2">Volver</button></Link>
+      </div>
+      
+      </div>
+      
+      <Footer/>
     </div>
   )
 }

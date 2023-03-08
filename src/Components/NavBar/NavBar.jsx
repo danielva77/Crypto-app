@@ -1,24 +1,9 @@
 import React from 'react'
-// import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
-import { FaMoon } from "react-icons/fa";
 import "./NavBar.css"
 import Swal from 'sweetalert2';
 
 function NavBar({ onAddCartera }) {
-// const [carteras, setCarteras] = useState([]);
-
-//   useEffect(() => {
-//     const storedArray = localStorage.getItem('carteras');
-//     if (storedArray) {
-//       setCarteras(JSON.parse(storedArray));
-//     }
-//   }, []);
-
-//   useEffect(() => {
-//     localStorage.setItem('carteras', JSON.stringify(carteras));
-//   }, [carteras]);
-
 
 
 function handleClick() {
@@ -34,34 +19,36 @@ Swal.fire({
         let newObject = { nombre: resultado.value,
                           transacciones: []};
         onAddCartera(newObject);
-        Swal.fire("Creado con exito!", "", "success");
+        Swal.fire("Creado con exito!", "", "success").then(() => {
+          setTimeout(() => {
+            window.location.reload();
+          }, 1);
+        });
       }
     });
 }
   return (
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-  <p class="navbar-brand text-center">Crypto App</p>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+<nav  id="navbar" class="navbar navbar-expand-lg bg-body-tertiary bg-blue bg-dark">
+  <div id="navbar-content" class="container-fluid bg-blue">
+  <p class="navbar-brand text-center bg-blue">Crypto App</p>
+    <button class="navbar-toggler text-bg-primary text-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon text-light"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item text-center">
-        <Link to="/" class="text-decoration-none"><p class="nav-link active text-center" id="navlink" aria-current="page">Inicio</p></Link>
+      <ul class="navbar-nav me-auto align-middle">
+        <li class="nav-item text-center align-middle">
+        <Link to="/" class="text-decoration-none bg-blue"><p class="nav-link active text-center text-light align-middle" id="navlink" aria-current="page">INICIO</p></Link>
         </li>
         <li class="nav-item text-center">
-        <Link to="/mercado" class="text-decoration-none"><p class="nav-link active text-center" id="navlink" aria-current="page">Mercado</p></Link>
+        <Link to="/mercado" class="text-decoration-none"><p class="nav-link active text-center text-light" id="navlink" aria-current="page">MERCADO</p></Link>
         </li>
         <li class="nav-item">
-          <Link to="/carteras" class="text-decoration-none"><p class="nav-link active text-center" id="navlink">Mis carteras</p></Link>
+          <Link to="/carteras" class="text-decoration-none"><p class="nav-link active text-center text-light" id="navlink">MIS CARTERAS</p></Link>
         </li>
       </ul>
         <div class="text-center">
-        <button class="m-1 align-content-center" onClick={(e) => handleClick()}>Crear cartera</button>
+        <button class="m-1 align-content-center btn fw-bold bg-orange btn-header text-light" onClick={(e) => handleClick()}>Crear cartera</button>
         </div>
-
-        <div class="text-center"><FaMoon class="ms-1"/></div>
         
     </div>
 

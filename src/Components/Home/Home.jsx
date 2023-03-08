@@ -1,91 +1,48 @@
-import React, { useState, useEffect }from 'react'
+import React from 'react'
 import Footer from '../Footer/Footer'
 import "./Home.css"
-import Swal from 'sweetalert2'
 
 function Home() {
 
-  window.addEventListener('scroll', function() {
-    var scrollTop = document.documentElement.scrollTop;
-    var scrollHeight = document.documentElement.scrollHeight;
-    
-    if (scrollTop + window.innerHeight >= scrollHeight) {
-      // el usuario ha llegado al final de la página, llame a su función aquí
-      miFuncion();
-    }
-  });
-  
-  function miFuncion() {
-    console.log("LLEGOALFINAL")
-  Swal.fire({
-    icon: 'info',
-    html:
-      'Si tenes dudas adicionales comunicate con nuestro chatbox',
-    focusConfirm: false,
-    confirmButtonText:
-      '<i class="fa fa-thumbs-up"></i> Entendido!',
-    confirmButtonAriaLabel: 'Thumbs up, great!',
-  })}
-
   return (
-    <div>
-      <header class = "pb-5 overflow-hidden bg-green">
+    <div class="prueba">
+      <header class = "pb-5 overflow-hidden bg-grey">
             <div class = "container">
-                {/* <div class = "row py-5">
-                    {/* <div class = "col-sm-6 text-lg-start">
-                        <p class = "navbar-brand text-black fs-1">
-                            Destiny <i class = "fa fa-cube"></i>
-                        </p>
-                    </div> */}
-                    {/* <div class = "col-sm-6 d-none d-md-flex text-black align-items-center nav-icons justify-content-end">
-                        <p class = "fw-bold mb-0">Available for:</p>
-                        <a href = "#">
-                            <i class = "fa fa-robot text-black px-2"></i>
-                        </a>
-                        <a href = "#">
-                            <i class = "fab fa-apple text-black px-2"></i>
-                        </a>
-                        <a href = "#">
-                            <i class = "fab fa-windows text-black px-2"></i>
-                        </a>
-                    </div> */}
-                {/* </div> */}
-
                 <div class = "row">
                     <div class = "col-lg-6 text-black text-center text-lg-start">
-                        <h1 class = "display-1 fw-normal mt-5">Explore our Application!</h1>
-                        <p class = "my-4 lead fs-5">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora possimus quam aperiam hic. Consequatur eum atque molestias exercitationem quos!</p>
-                        <button type = "button" class = "btn fw-bold text-black mt-4 btn-header">Explore now!</button>
+                        <h1 class = "display-1 fw-normal mt-5 text-black">Explore our Application!</h1>
+                        <p class = "my-4 lead fs-5 text-black">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora possimus quam aperiam hic. Consequatur eum atque molestias exercitationem quos!</p>
+                        <a href="#sec-1"><button type = "button" class = "btn btn-green fw-bold mt-4 btn-header text-light">Explore now!</button></a>
                     </div>
                     <div class = "col-lg-6 phone-img d-none d-lg-flex justify-content-end gx-0 mt-5">
-                        <img src = "https://cdn.pixabay.com/photo/2022/06/21/08/57/male-7275449_1280.jpg"/>
+                        <img src = "https://cdn.pixabay.com/photo/2022/08/25/09/35/germany-7409782_1280.jpg" alt="imagen"/>
                     </div>
                 </div>
             </div>
         </header>
-      <section id = "sec-1" class = "py-5 bg-grey">
+      <section id = "sec-1" class = "py-5 bg-dark">
            <div class = "container my-3">
                <div class = "row">
                    <div class = "col-md-4 text-center sec-1-item mb-5">
-                        <span class = "d-flex align-items-center justify-content-center mx-auto text-black mb-4 circle-icon">
-                            <i class = "far fa-heart fs-3"></i>
+                        <span class = "d-flex align-items-center justify-content-center mx-auto text-black mb-4 circle-icon bg-white">
+                            <i class = "far fa-heart fs-3">✓</i>
                         </span>
-                        <p class = "lead fw-bold">Quality</p>
-                        <p class = "fw-light mx-3 lh-lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae ducimus dolorum necessitatibus veritatis molestias exercitationem non earum quod dicta temporibus architecto.</p>
+                        <p class = "lead fw-bold text-light">Quality</p>
+                        <p class = "fw-light mx-3 lh-lg text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae ducimus dolorum necessitatibus veritatis molestias exercitationem non earum quod dicta temporibus architecto.</p>
                    </div>
                    <div class = "col-md-4 text-center sec-1-item mb-5">
-                        <span class = "d-flex align-items-center justify-content-center mx-auto text-black mb-4 circle-icon">
-                            <i class = "far fa-flag fs-2"></i>
+                        <span class = "d-flex align-items-center justify-content-center mx-auto text-black mb-4 circle-icon bg-white">
+                            <i class ="far fa-flag fs-2">✓</i>
                         </span>
-                        <p class = "lead fw-bold">Reliability</p>
-                        <p class = "fw-light mx-3 lh-lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae ducimus dolorum necessitatibus veritatis molestias exercitationem non earum quod dicta temporibus.</p>
+                        <p class = "lead fw-bold text-light">Reliability</p>
+                        <p class = "fw-light mx-3 lh-lg text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae ducimus dolorum necessitatibus veritatis molestias exercitationem non earum quod dicta temporibus.</p>
                     </div>
                     <div class = "col-md-4 text-center sec-1-item mb-5">
-                        <span class = "d-flex align-items-center justify-content-center mx-auto text-black mb-4 circle-icon">
-                            <i class = "far fa-star fs-2"></i>
+                        <span class = "d-flex align-items-center justify-content-center mx-auto text-black mb-4 circle-icon bg-white">
+                            <i class = "far fa-star fs-2">✓</i>
                         </span>
-                        <p class = "lead fw-bold">Affordability</p>
-                        <p class = "fw-light mx-3 lh-lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae ducimus dolorum necessitatibus veritatis molestias exercitationem non earum quod dicta temporibus.</p>
+                        <p class = "lead fw-bold text-light">Affordability</p>
+                        <p class = "fw-light mx-3 lh-lg text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae ducimus dolorum necessitatibus veritatis molestias exercitationem non earum quod dicta temporibus.</p>
                     </div>
                </div>
            </div>
@@ -95,7 +52,7 @@ function Home() {
            <div class = "container my-4">
                <div class = "row gx-lg-5">
                    <div class = "col-lg-6 mb-5">
-                        <img src = "images/section-2-bg.jpg" class = "img-fluid"/>
+                        <img src = "https://cdn.pixabay.com/photo/2021/08/08/15/06/stock-market-6531146_1280.jpg" class = "img-fluid" alt="imagen"/>
                    </div>
                    <div class = "col-lg-6">
                        <h3>Our product will amaze you</h3>
@@ -106,12 +63,12 @@ function Home() {
            </div>
        </section>
 
-       <section id = "sec-3" class = "py-5 text-black bg-green">
+       <section id = "sec-3" class = "py-5 text-black bg-blue">
            <div class = "container my-4">
                <div class = "row mb-5">
                    <div class = "col text-center">
-                       <h3 class = "mb-4">Browse the features in detail</h3>
-                       <p class = "lh-lg fw-light pt-2 w-75 mx-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, alias a natus deleniti neque ad cupiditate dicta explicabo nemo vel?</p>
+                       <h3 class = "mb-4 text-light">Browse the features in detail</h3>
+                       <p class = "lh-lg fw-light pt-2 w-75 mx-auto text-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, alias a natus deleniti neque ad cupiditate dicta explicabo nemo vel?</p>
                    </div>
                </div>
                <div class = "row">
@@ -123,8 +80,8 @@ function Home() {
                                 </span>
                             </div>
                             <div class = "col-sm-10">
-                                <h4>100% Vectors</h4>
-                                <p class = "lh-lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores voluptatum ab a inventore neque. Tempora?</p>
+                                <h4 class="text-light">100% Vectors</h4>
+                                <p class = "lh-lg text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores voluptatum ab a inventore neque. Tempora?</p>
                             </div>
                        </div>
                    </div>
@@ -137,8 +94,8 @@ function Home() {
                                 </span>
                             </div>
                             <div class = "col-sm-10">
-                                <h4>Preference Panel</h4>
-                                <p class = "lh-lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores voluptatum ab a inventore neque. Tempora?</p>
+                                <h4 class="text-light">Preference Panel</h4>
+                                <p class = "lh-lg text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores voluptatum ab a inventore neque. Tempora?</p>
                             </div>
                        </div>
                    </div>
@@ -151,8 +108,8 @@ function Home() {
                                 </span>
                             </div>
                             <div class = "col-sm-10">
-                                <h4>Retina Ready</h4>
-                                <p class = "lh-lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores voluptatum ab a inventore neque. Tempora?</p>
+                                <h4 class="text-light">Retina Ready</h4>
+                                <p class = "lh-lg text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores voluptatum ab a inventore neque. Tempora?</p>
                             </div>
                        </div>
                    </div>
@@ -165,8 +122,8 @@ function Home() {
                                 </span>
                             </div>
                             <div class = "col-sm-10">
-                                <h4>Pixel Perfect</h4>
-                                <p class = "lh-lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores voluptatum ab a inventore neque. Tempora?</p>
+                                <h4 class="text-light">Pixel Perfect</h4>
+                                <p class = "lh-lg text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores voluptatum ab a inventore neque. Tempora?</p>
                             </div>
                        </div>
                    </div>
@@ -174,7 +131,7 @@ function Home() {
            </div>
        </section>
 
-       <section id = "sec-4" class = "py-5">
+       {/* <section id = "sec-4" class = "py-5">
         <div class = "container my-4">
             <div class = "row gx-lg-5">
                 <div class = "col-lg-6 mb-5">
@@ -188,14 +145,13 @@ function Home() {
                 </div>
             </div>
         </div>
-    </section>
+    </section> */}
 
     <section id = "sec-5" class = "py-5">
-        <div class = "container my-4">
-            <div class = "row mb-5">
+        <div class = "container my-2">
+            <div class = "row mb-2">
                 <div class = "col text-center">
-                    <h3 class = "mb-4">Promotional Video</h3>
-                    {/* <p class = "lh-lg fw-light pt-2 w-75 mx-auto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, alias a natus deleniti neque ad cupiditate dicta explicabo nemo vel?</p> */}
+                    <h3 class = "mb-1">Aprendé a identificar tendencias</h3>
                 </div>
             </div>
 
@@ -208,8 +164,8 @@ function Home() {
         <div class = "container my-4">
             <div class = "row mb-5">
                 <div class = "col-12 text-center text-black">
-                    <h3 class = "mb-4">App Statistics</h3>
-                    <p class = "lh-lg fw-light pt-2 w-75 mx-auto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci aut nemo exercitationem qui numquam aliquid natus explicabo, deserunt repudiandae sit in animi cupiditate rem quia?</p>
+                    <h3 class = "mb-4 text-light">App Statistics</h3>
+                    <p class = "lh-lg fw-light pt-2 w-75 mx-auto text-light">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci aut nemo exercitationem qui numquam aliquid natus explicabo, deserunt repudiandae sit in animi cupiditate rem quia?</p>
                 </div>
             </div>
             <div class = "row text-uppercase text-center text-black">
@@ -217,21 +173,21 @@ function Home() {
                     <div class = "circle-icon bg-white text-green d-flex align-items-center justify-content-center mx-auto mb-4 fs-2 fw-bold">
                         200+
                     </div>
-                    <h6>projects</h6>
+                    <h6 class="text-light">projects</h6>
                 </div>
 
                 <div class = "col-md-6 col-lg-3 mb-5">
                     <div class = "circle-icon bg-white text-green d-flex align-items-center justify-content-center mx-auto mb-4 fs-2 fw-bold">
                         50+
                     </div>
-                    <h6>happy clients</h6>
+                    <h6 class="text-light">happy clients</h6>
                 </div>
 
                 <div class = "col-md-6 col-lg-3 mb-5">
                     <div class = "circle-icon bg-white text-green d-flex align-items-center justify-content-center mx-auto mb-4 fs-2 fw-bold">
                         90%
                     </div>
-                    <h6>repeat </h6>
+                    <h6 class="text-light">repeat </h6>
                 </div>
 
                 <div class = "col-md-6 col-lg-3 mb-5">
@@ -249,22 +205,22 @@ function Home() {
             <div class = "row gx-md-5">
                 <div class = "col-md-6 my-3">
                     <div class = "card text-center">
-                        <img class = "card-img-top" src = "images/blog-1-img.jpg"/>
+                        <img class = "card-img-top" src = "https://cdn.pixabay.com/photo/2017/08/15/08/53/bitcoin-2643159_1280.jpg" alt="imagen"/>
                         <div class = "card-body py-5">
                             <h4 class = "card-title">How to deal with Clients</h4>
                             <p class = "card-text py-3 lh-lg text-muted fw-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis libero reprehenderit, enim iure debitis doloremque nulla perspiciatis natus impedit obcaecati molestias sunt voluptate sed ipsa?</p>
-                            <a href = "#" class = "btn btn-green">Learn more</a>
+                            <button class ="btn btn-green">Learn more</button>
                         </div>
                     </div>
                 </div>
 
                 <div class = "col-md-6 my-3">
                     <div class = "card text-center">
-                        <img class = "card-img-top" src = "images/blog-2-img.jpg"/>
+                        <img class = "card-img-top" src = "https://cdn.pixabay.com/photo/2019/12/01/05/02/keyboard-4664732_1280.jpg" alt="imagen"/>
                         <div class = "card-body py-5">
                             <h4 class = "card-title">Best ideas for task completion</h4>
                             <p class = "card-text py-3 lh-lg text-muted fw-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis libero reprehenderit, enim iure debitis doloremque nulla perspiciatis natus impedit obcaecati molestias sunt voluptate sed ipsa?</p>
-                            <a href = "#" class = "btn btn-green">Learn more</a>
+                            <button class = "btn btn-green">Learn more</button>
                         </div>
                     </div>
                 </div>
@@ -272,7 +228,7 @@ function Home() {
         </div>
     </section>
 
-    <section id = "sec-8" class = "py-5 bg-grey">
+    {/* <section id = "sec-8" class = "py-5 bg-grey">
         <div class = "container my-4">
             <div class = "row">
                 <div class = "col-12 text-center">
@@ -328,9 +284,9 @@ function Home() {
                 </div>
             </div>
         </div>
-    </section>
+    </section> */}
 
-    <section id = "sec-9" class = "py-5">
+    {/* <section id = "sec-9" class = "py-5">
         <div class = "container my-5">
             <div class = "row">
                 <div class = "col-12 text-center">
@@ -379,25 +335,7 @@ function Home() {
                 </div>
             </div>
         </div>
-    </section>
-
-    <footer class = "bg-green">
-        <div class = "container">
-            <div class = "row pt-4 text-black">
-                <div class = "col-md-6 text-center text-md-start">
-                    <p><span class = "fw-bold">Destiny &copy;</span> Copyright 2021</p>
-                </div>
-                <div class = "col-md-6 d-flex justify-content-center justify-content-md-end">
-                    <ul class = "d-flex p-0">
-                        <li><i class = "fab fa-facebook-f px-2"></i></li>
-                        <li><i class = "fab fa-twitter px-2"></i></li>
-                        <li><i class = "fab fa-instagram px-2"></i></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
-
+    </section> */}
       <Footer/>
     </div>
   )

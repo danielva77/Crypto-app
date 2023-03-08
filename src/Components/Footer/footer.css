@@ -1,0 +1,13 @@
+:root{
+    --blue: #021859;
+}
+.bg-blue{
+    background-color: var(--blue);
+    color: #fff;
+}
+
+.mt1-4{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

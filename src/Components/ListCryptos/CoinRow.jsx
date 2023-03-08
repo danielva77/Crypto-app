@@ -1,17 +1,18 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 function CoinRow({ coin, index }) {
   return (
       <tr>
-        <td className="text-muted">{index}</td>
+        <td className="text-light">{index}</td>
         <td>
           <img
             src={coin.image}
             alt=""
-            className="img-fluid me-4"
+            className="me-4"
             style={{ width: "3%" }}
           />
-          <span>{coin.name}</span>
+          <Link to={"/detalles/"+coin.id}><span>{coin.name}</span></Link>
           <span className="ms-3 text-muted text-uppercase">{coin.symbol}</span>
         </td>
   

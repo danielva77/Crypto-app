@@ -13,7 +13,7 @@ function ListCryptos({ coins, search }) {
 
   return (
     <div class="divCripto">
-      <table className="table mt-4 table-hover">
+      <table className="table mt-4 table-dark table-hover">
         <thead>
           <tr>
             {titles.map((title, i) => (

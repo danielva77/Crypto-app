@@ -1,7 +1,9 @@
 :root{
-    --green: #16db93;
-    --green-dark: #13bc7e;
-    --light-grey: #f1f4f6;
+    --blue: #021859;
+    --green: #0455BF;
+    --green-dark: #021859;
+    --light-grey: #eeeae3;
+    --orange: #f7b23a;
 }
 
 *{
@@ -24,6 +26,9 @@ ul li{
 .bg-grey{
     background-color: var(--light-grey);
 }
+.bg-orange{
+    background-color: var(--orange);
+}
 .text-green{
     color: var(--green);
 }
@@ -34,10 +39,19 @@ ul li{
     width: 160px;
 }
 .btn-green{
-    background-color: var(--green);
+    background-color: var(--green-dark);
     color: #fff;
     padding: 0.55rem 0;
-    width: 140px;
+    /* width: 140px; */
+}
+.btn1-green{
+    background-color: var(--green-dark);
+    color: #fff;
+}
+.btn1-green:hover{
+    color: var(--green);
+    background: #fff;
+    border-color: var(--green);
 }
 .btn-green:hover{
     color: var(--green);
@@ -56,7 +70,7 @@ ul li{
 
 /* header */
 header{
-    height: 100vh;
+    height: auto;
 }
 .navbar-brand .fa{
     font-size: 1.3rem;
@@ -78,7 +92,7 @@ header{
 
 /* section 6 */
 #sec-6{
-    background: linear-gradient(rgba(22, 219, 147, 0.9), rgba(22, 219, 147, 0.9)), url(https://cdn.pixabay.com/photo/2022/06/21/08/57/male-7275449_1280.jpg) center/cover no-repeat;
+    background: linear-gradient(#02185981, #021859c5), url(https://cdn.pixabay.com/photo/2022/06/21/08/57/male-7275449_1280.jpg) center/cover no-repeat;
 }
 #sec-6 .circle-icon{
     width: 95px;

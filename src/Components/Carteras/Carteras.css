@@ -1,6 +1,7 @@
 button {
     border: none;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .square {
@@ -18,10 +19,6 @@ button {
 
 .round-corner-small {
     border-radius: 6px;
-}
-
-.font-10 {
-    font-size: 10px;
 }
 
 .font-12 {
@@ -76,26 +73,6 @@ button {
     color: #FF8872;
 }
 
-.purple-color {
-    color: #5D4E7B;
-}
-
-.purple-color-2 {
-    color: #776D8A;
-}
-
-.yellow-color {
-    color: #EAC52D;
-}
-
-.teal-color {
-    color: #43B8D5;
-}
-
-.green-color {
-    color: #43D5AE;
-}
-
 .grey-color {
     color: #DBE3E5;
 }
@@ -105,33 +82,16 @@ button {
 }
 
 .grey-bg-color {
-    background: #DBE3E5;
+    background: #E3E5EE;
 }
 
 .purple-bg-color {
-    background: #5D4E7B;
+    background: #021859;
 }
 
 .orange-bg-color {
-    background: #FF8872;
+    background: orange;
 }
-
-.light-purple-bg-color {
-    background: #F1F0F3;
-}
-
-.light-orange-bg-color {
-    background: #FFECE8;
-}
-
-.light-yellow-bg-color {
-    background: #FCF6DD;
-}
-
-.light-teal-bg-color {
-    background: #E0F4F8;
-}
-
-.light-green-bg-color {
-    background: #E0F8F2;
+.margingeneral{
+height: 50px;
 }

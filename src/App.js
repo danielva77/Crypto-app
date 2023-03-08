@@ -6,6 +6,7 @@ import Mercado from './Components/Mercado/Mercado';
 import NavBar from "./Components/NavBar/NavBar";
 import Transacciones from "./Components/Transacciones/Transacciones";
 import axios from "axios";
+import Detalles from "./Components/Detalles/Detalles";
 
 function App() {
 
@@ -57,8 +58,10 @@ useEffect(() => {
         <Route path="/mercado" element={<Mercado trend={trend} btc={btc} crypto={crypto}/>}/>
         <Route path="/carteras" element={<Carteras />}/>
         <Route path="/transacciones/:id" element={<Transacciones crypto={crypto}/>}/>
+        <Route path="/detalles/:id" element={<Detalles />}/>
       </Routes>
     </BrowserRouter>
+    
 
   );
 }

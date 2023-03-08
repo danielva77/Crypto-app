@@ -1,20 +1,21 @@
-:root{
+:root {
     --blue: #021859;
 }
-.bg-blue{
+
+.bg-blue {
     background-color: var(--blue);
     color: #fff;
 }
 
 
-#navlink:hover{
+#navlink:hover {
     background-color: orange;
 }
 
-#navbar{
+#navbar {
     margin-top: -10px;
 }
 
-#navbar-content{
-    padding:10px
+#navbar-content {
+    padding: 10px
 }

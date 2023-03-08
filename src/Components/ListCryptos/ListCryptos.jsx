@@ -2,12 +2,12 @@ import React from 'react'
 import CoinRow from './CoinRow';
 import "./ListCriptos.css"
 
-const titles = ["#", "Criptomoneda", "Precio USD", "Cambio de precio","Volumen en 24Hs"];
+const titles = ["#", "Criptomoneda", "Precio USD", "Cambio de precio", "Volumen en 24Hs"];
 function ListCryptos({ coins, search }) {
-    const filteredCoins = coins.filter((coin) =>
-    coin.name.toLowerCase().includes(search.toLowerCase()) || 
+  const filteredCoins = coins.filter((coin) =>
+    coin.name.toLowerCase().includes(search.toLowerCase()) ||
     coin.symbol.toLowerCase().includes(search.toLowerCase())
-    );
+  );
 
   if (!coins) return <div>no coins</div>
 

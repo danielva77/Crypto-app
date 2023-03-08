@@ -1,26 +1,26 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Footer from '../Footer/Footer';
 import "./Transacciones.css"
 import { Link } from 'react-router-dom';
 
-function Transacciones({crypto}) {
+function Transacciones({ crypto }) {
 
   const [carteras, setCarteras] = useState(() => {
     const arrayEnLocalStorage = JSON.parse(localStorage.getItem('carteras')) || [];
     return arrayEnLocalStorage;
   });
-const arrayEnLocalStorage = JSON.parse(localStorage.getItem("carteras"));
-useEffect(() => {
-  localStorage.setItem("carteras", JSON.stringify(carteras));
-}, [carteras]);
+  const arrayEnLocalStorage = JSON.parse(localStorage.getItem("carteras"));
+  useEffect(() => {
+    localStorage.setItem("carteras", JSON.stringify(carteras));
+  }, [carteras]);
 
 
-  const ruta=useParams().id;
-  const indice = carteras.findIndex(objeto => objeto.nombre === ruta)
+  const ruta = useParams().id;
+  const indice = carteras.findIndex(objeto => objeto.nombre === ruta) ? carteras.findIndex(objeto => objeto.nombre === ruta) : 0;
 
-  function handleAdd(){
+  function handleAdd() {
 
     Swal.fire({
       title: 'Agregar una transaccion',
@@ -35,7 +35,7 @@ useEffect(() => {
         <select name="criptomoneda" id="criptomoneda">
         <option value="" disabled selected>Seleccionar criptomoneda</option>
         ${crypto.map((e) => `<option name=${e.name} value=${e.name}>${e.symbol.toUpperCase()} ${e.name}→${e.current_price}US$</option>`
-        )}
+      )}
         </select>
         <input type="number" id="cantidad" name="cantidad" placeholder="cantidad" min="0" value="1">Cantidad</input>
         <input type="number" id="price" name="precio" placeholder="Precio unitario US$" min="0"></input>
@@ -62,33 +62,33 @@ useEffect(() => {
             text: 'No se pudo efectuar la operacion, datos faltantes',
           });
           return;
-        }else{       
+        } else {
           const formValues = {
-          tipo: type,
-          criptomoneda: currency,
-          cantidad: quantity,
-          precio: price,
-          total: quantity*price,
-          fecha: date
-        };
-        const indiceObjetoAEditar = arrayEnLocalStorage.findIndex(objeto => objeto.nombre === ruta);
-        carteras[indiceObjetoAEditar].transacciones.push(formValues);
-        localStorage.setItem("carteras", JSON.stringify(carteras));
-        setCarteras([...carteras]);
-        Swal.fire({
-          icon: 'success',
-          title: 'Transaccion realizada con exito!',
-          showConfirmButton: false,
-          timer: 1000
-        })
-      }
+            tipo: type,
+            criptomoneda: currency,
+            cantidad: quantity,
+            precio: price,
+            total: quantity * price,
+            fecha: date
+          };
+          const indiceObjetoAEditar = arrayEnLocalStorage.findIndex(objeto => objeto.nombre === ruta);
+          carteras[indiceObjetoAEditar].transacciones.push(formValues);
+          localStorage.setItem("carteras", JSON.stringify(carteras));
+          setCarteras([...carteras]);
+          Swal.fire({
+            icon: 'success',
+            title: 'Transaccion realizada con exito!',
+            showConfirmButton: false,
+            timer: 1000
+          })
+        }
       }
     });
   }
 
 
 
-  function handleDeleteTransaccion(index){
+  function handleDeleteTransaccion(index) {
     Swal.fire({
       title: 'Desea eliminar esta transaccion?',
       text: "No podrás revertir esto",
@@ -99,7 +99,7 @@ useEffect(() => {
       confirmButtonText: 'Si, eliminar!'
     }).then((result) => {
       if (result.isConfirmed) {
-        carteras[indice].transacciones.splice(index,1)
+        carteras[indice].transacciones.splice(index, 1)
         localStorage.setItem("carteras", JSON.stringify(carteras));
         setCarteras([...carteras]);
         Swal.fire(
@@ -112,7 +112,7 @@ useEffect(() => {
   }
 
 
-  function handleUpdate(index){
+  function handleUpdate(index) {
     const indiceObjetoAEditar = arrayEnLocalStorage.findIndex(objeto => objeto.nombre === ruta);
     Swal.fire({
       title: 'Modificar una transaccion',
@@ -151,10 +151,10 @@ useEffect(() => {
           criptomoneda: currency,
           cantidad: quantity,
           precio: price,
-          total: quantity*price,
+          total: quantity * price,
           fecha: date
         };
-       
+
         carteras[indiceObjetoAEditar].transacciones[index] = formValues;
         localStorage.setItem("carteras", JSON.stringify(carteras));
         setCarteras([...carteras]);
@@ -167,49 +167,49 @@ useEffect(() => {
     });
 
   }
-  const titles = ["#","Tipo", "Criptomoneda", "cantidad", "Precio USD", "Total USD","Fecha", "Modificar", "Eliminar"];
-    return (
+  const titles = ["#", "Tipo", "Criptomoneda", "cantidad", "Precio USD", "Total USD", "Fecha", "Modificar", "Eliminar"];
+  return (
     <div>
       <div class="container">
-      <div>
-        
-        <h1 class="fw-bold">{carteras[indice].nombre}</h1>
-        <button onClick={(e) => handleAdd()} type = "button" class = "btn btn-green mt-2 mb-4">Agregar Transaccion</button>
-        <h5>Historial de transacciones</h5>
-        
+        <div>
+
+          <h1 class="fw-bold">{carteras[indice] && carteras[indice].nombre}</h1>
+          <button data-testid="add-transaction-button" onClick={(e) => handleAdd()} type="button" class="btn btn-green mt-2 mb-4">Agregar Transaccion</button>
+          <h5>Historial de transacciones</h5>
+
+        </div>
+        <div class="divCripto">
+          <table className="table mt-4 table-dark table-hover">
+            <thead>
+              <tr class="fw-bold text-light">
+                {titles.map((title, i) => (
+                  <td key={i}>{title}</td>
+                ))}
+              </tr>
+            </thead>
+            <tbody data-testid="transaccion">
+              {carteras[indice] && carteras[indice].transacciones.map((e, index) =>
+                <tr key={index} >
+                  <td className="text-muted">{index}</td>
+                  <td className={e.tipo === "compra" ? "text-success" : "text-danger"}><span>{e.tipo}</span></td>
+                  <td><span>{e.criptomoneda}</span></td>
+                  <td className={e.tipo === "compra" ? "text-success" : "text-danger"}><span>{e.tipo === "compra" ? e.cantidad : -e.cantidad}</span></td>
+                  <td><span>{e.precio}</span></td>
+                  <td><span>{e.total}</span></td>
+                  <td><span>{e.fecha}</span></td>
+                  <td><button onClick={(e) => handleUpdate(index)} class="btn1-green">Modificar</button></td>
+                  <td><button onClick={(e) => handleDeleteTransaccion(index)} class="btn1-green">Eliminar</button></td>
+                </tr>
+              )
+              }
+            </tbody>
+          </table>
+          <Link to="/carteras"><button type="button" class="btn btn-green mt-2">Volver</button></Link>
+        </div>
+
       </div>
-      <div class="divCripto">
-      <table className="table mt-4 table-dark table-hover">
-        <thead>
-          <tr class="fw-bold text-light">
-            {titles.map((title, i) => (
-              <td key={i}>{title}</td>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-        { carteras[indice].transacciones.map((e,index) => 
-        <tr>
-          <td className="text-muted">{index}</td>
-          <td className={e.tipo === "compra"? "text-success" : "text-danger"}><span>{e.tipo}</span></td>
-          <td><span>{e.criptomoneda}</span></td>
-          <td className={e.tipo === "compra"? "text-success" : "text-danger"}><span>{e.tipo === "compra"? e.cantidad : -e.cantidad}</span></td>
-          <td><span>{e.precio}</span></td>
-          <td><span>{e.total}</span></td>
-          <td><span>{e.fecha}</span></td>
-          <td><button onClick={(e) => handleUpdate(index)} class = "btn1-green">Modificar</button></td>
-          <td><button onClick={(e) =>handleDeleteTransaccion(index)} class = "btn1-green">Eliminar</button></td>
-        </tr>
-        )
-    }
-        </tbody>
-      </table>
-      <Link to="/carteras"><button type = "button" class = "btn btn-green mt-2">Volver</button></Link>
-      </div>
-      
-      </div>
-      
-      <Footer/>
+
+      <Footer />
     </div>
   )
 }
